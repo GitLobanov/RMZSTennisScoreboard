@@ -21,12 +21,12 @@
 <h2>Счет (геймы): <p>${resultGames}</p></h2>
 <h2>Счет гейма: <p>${resultGame}</p></h2>
 
-<label type="text" name="player1" class="input">Первый игрок:</label>
+<label type="text" name="player1" class="input">${player1Name}</label>
 <form method="post">
     <button class="button" name="player" value="${player1}"  type="submit">+</button>
 </form>
 <br><br>
-<label type="text" name="player2" class="input">Второй игрок:</label>
+<label type="text" name="player2" class="input">${player2Name}</label>
 <form action="" method="post">
     <button class="button" name="player" value="${player2}" type="submit">+</button>
 </form>
@@ -56,6 +56,7 @@
     <h1>ЗАВЕРШЕН</h1>
 
     <h2>Сетов сыграно: <p>${resultSets}</p></h2>
+    <h3>Победитель: <p>${winner}</p></h3>
 
     <form action="/" method="get">
         <button class="button" type="submit">К спискам матчей</button>

@@ -68,6 +68,7 @@ public class MatchServlet extends HttpServlet {
                 match.setWinner(player);
                 matchService.save(match);
                 req.setAttribute("matchStatus", "end");
+                req.setAttribute("winner", match.getWinner().getName());
             } else {
                 req.setAttribute("matchStatus", "game");
             }
@@ -96,7 +97,9 @@ public class MatchServlet extends HttpServlet {
         }
 
         req.setAttribute("player1", currentPlayer1.getId());
+        req.setAttribute("player1Name", currentPlayer1.getName());
         req.setAttribute("player2", currentPlayer2.getId());
+        req.setAttribute("player2Name", currentPlayer2.getName());
 
         req.getRequestDispatcher("match.jsp").forward(req, resp);
 //        resp.sendRedirect(req.getContextPath());

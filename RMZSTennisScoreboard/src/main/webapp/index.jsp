@@ -18,7 +18,7 @@
     </ul>
 
     <h2>Завершенные матчи:</h2>
-    <div class="table-scroll">
+    <div class="scroll-container">
     <table class="zigzag">
         <thead>
         <tr>
