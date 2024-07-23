@@ -96,3 +96,9 @@ h2 {
     align-content: center;
     align-items: center;
 }
+
+.table-scroll {
+    width: 80%;
+    height: 300px;
+    overflow: auto;
+}
