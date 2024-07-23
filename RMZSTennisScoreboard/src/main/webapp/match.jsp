@@ -23,12 +23,12 @@
 
 <label type="text" name="player1" class="input">Первый игрок:</label>
 <form method="post">
-    <button class="button" name="player" value="1"  type="submit">+</button>
+    <button class="button" name="player" value="${player1}"  type="submit">+</button>
 </form>
 <br><br>
 <label type="text" name="player2" class="input">Второй игрок:</label>
 <form action="" method="post">
-    <button class="button" name="player" value="2" type="submit">+</button>
+    <button class="button" name="player" value="${player2}" type="submit">+</button>
 </form>
 <br><br>
 

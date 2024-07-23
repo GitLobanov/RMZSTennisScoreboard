@@ -36,9 +36,9 @@
         %>
         <tr>
             <td><%= match.getId() %></td>
-            <td><%= match.getPlayer2() %></td>
-            <td><%= match.getPlayer2() %></td>
-            <td><%= match.getWinner() %></td>
+            <td><%= match.getPlayer1().getName() %></td>
+            <td><%= match.getPlayer2().getName() %></td>
+            <td><%= match.getWinner().getName() %></td>
         </tr>
         <%
             }

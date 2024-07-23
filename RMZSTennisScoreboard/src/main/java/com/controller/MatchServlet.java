@@ -1,8 +1,10 @@
 package com.controller;
 
+import com.model.Match;
 import com.model.Player;
 import com.service.MatchService;
 import com.service.OngoingMatchesService;
+import com.service.PlayerService;
 import com.util.HibernateUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,7 +19,10 @@ import java.io.IOException;
 public class MatchServlet extends HttpServlet {
 
     private MatchService matchService = new MatchService();
+    private PlayerService playerService = new PlayerService();
     private OngoingMatchesService ongoingMatchesService = new OngoingMatchesService();
+    private Player currentPlayer1;
+    private Player currentPlayer2;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,10 +48,9 @@ public class MatchServlet extends HttpServlet {
         String resultGames = "0";
 
         if (req.getParameter("player") != null) {
-            int id = Integer.parseInt(req.getParameter("player"));
-            Session session = HibernateUtil.getSessionFactory().openSession();
-            Player player = session.get(Player.class, id);
-            session.close();
+            long id = Long.parseLong(req.getParameter("player"));
+            Player player = matchService.findById(id).get();
+
             ongoingMatchesService.appendGamePoint(player);
 
             if (ongoingMatchesService.isHaveGameWinner(player)) {
@@ -58,6 +62,11 @@ public class MatchServlet extends HttpServlet {
 
             if (ongoingMatchesService.isEndMatch()){
                 ongoingMatchesService.getWinner();
+                Match match = new Match();
+                match.setPlayer1(currentPlayer1);
+                match.setPlayer2(currentPlayer2);
+                match.setWinner(player);
+                matchService.save(match);
                 req.setAttribute("matchStatus", "end");
             } else {
                 req.setAttribute("matchStatus", "game");
@@ -70,16 +79,24 @@ public class MatchServlet extends HttpServlet {
             req.setAttribute("resultGames", resultGames);
             req.setAttribute("resultGame", resultGame);
         } else {
-            Session session = HibernateUtil.getSessionFactory().openSession();
-            Player player1 = session.get(Player.class, 1);
-            Player player2 = session.get(Player.class, 2);
-            session.close();
-            ongoingMatchesService.startMatch(player1, player2);
+
+            currentPlayer1 = new Player();
+            currentPlayer1.setName(req.getParameter("player1"));
+            currentPlayer2 = new Player();
+            currentPlayer2.setName(req.getParameter("player2"));
+
+            playerService.save(currentPlayer1);
+            playerService.save(currentPlayer2);
+
+            ongoingMatchesService.startMatch(currentPlayer1, currentPlayer2);
 
             ongoingMatchesService.startSet();
             ongoingMatchesService.startGame();
             req.setAttribute("matchStatus", "game");
         }
+
+        req.setAttribute("player1", currentPlayer1.getId());
+        req.setAttribute("player2", currentPlayer2.getId());
 
         req.getRequestDispatcher("match.jsp").forward(req, resp);
 //        resp.sendRedirect(req.getContextPath());

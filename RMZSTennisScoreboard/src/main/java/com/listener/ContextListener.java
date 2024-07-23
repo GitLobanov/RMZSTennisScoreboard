@@ -1,5 +1,7 @@
 package com.listener;
 
+import com.factory.MatchFactory;
+import com.factory.PlayerFactory;
 import com.model.Match;
 import com.model.Player;
 import com.service.MatchService;
@@ -25,7 +27,6 @@ public class ContextListener implements ServletContextListener, HttpSessionListe
         MatchService matchService = new MatchService();
         final ServletContext servletContext = sce.getServletContext();
         servletContext.setAttribute("matchService", matchService);
-        //Добавляет тестовые матчи
         addSomeMatches();
     }
 
@@ -33,60 +34,35 @@ public class ContextListener implements ServletContextListener, HttpSessionListe
         try(Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction tx = session.beginTransaction();
 
-            MatchService matchDao = new MatchService();
+            MatchService matchService = new MatchService();
             PlayerService playerService = new PlayerService();
 
-            Player p1 = new Player();
-            p1.setName("А. Петров");
+            Player p1 = PlayerFactory.createPlayer("А. Петров");
+            Player p2 = PlayerFactory.createPlayer("И. Иванов");
+            Player p3 = PlayerFactory.createPlayer("С. Сидоров");
+            Player p4 = PlayerFactory.createPlayer("У. Ушаков");
+            Player p5 = PlayerFactory.createPlayer("Б. Баранов");
 
-            Player p2 = new Player();
-            p2.setName("И. Иванов");
+            Player p6 = PlayerFactory.createPlayer("К. Кузнецов");
+            Player p7 = PlayerFactory.createPlayer("Л. Лебедев");
+            Player p8 = PlayerFactory.createPlayer("М. Морозов");
+            Player p9 = PlayerFactory.createPlayer("Н. Николаев");
+            Player p10 = PlayerFactory.createPlayer("О. Орлов");
 
-            Player p3 = new Player();
-            p3.setName("С. Сидоров");
+            playerService.saves(new Player[]{p1,p2,p3,p4,p5,p6,p7,p8,p9,p10});
 
-            Player p4 = new Player();
-            p4.setName("У. Ушаков");
+            Match m1 = MatchFactory.createMatch(p6,p5,p5);
+            Match m2 = MatchFactory.createMatch(p1,p2,p1);
+            Match m3 = MatchFactory.createMatch(p3,p4,p3);
+            Match m4 = MatchFactory.createMatch(p5,p7,p5);
+            Match m5 = MatchFactory.createMatch(p5,p3,p5);
+            Match m6 = MatchFactory.createMatch(p8,p5,p8);
+            Match m7 = MatchFactory.createMatch(p9,p8,p8);
+            Match m8 = MatchFactory.createMatch(p10,p8,p8);
+            Match m9 = MatchFactory.createMatch(p10,p5,p10);
+            Match m10 = MatchFactory.createMatch(p10,p3,p3);
 
-            Player p5 = new Player();
-            p5.setName("Б. Баранов");
-
-            playerService.save(p1);
-            playerService.save(p2);
-            playerService.save(p3);
-            playerService.save(p4);
-            playerService.save(p5);
-
-            Match m1 = new Match();
-            m1.setPlayer1(p1);
-            m1.setPlayer2(p2);
-            m1.setWinner(p2);
-
-            Match m2 = new Match();
-            m2.setPlayer1(p1);
-            m2.setPlayer2(p3);
-            m2.setWinner(p1);
-
-            Match m3 = new Match();
-            m3.setPlayer1(p1);
-            m3.setPlayer2(p4);
-            m3.setWinner(p4);
-
-            Match m4 = new Match();
-            m4.setPlayer1(p1);
-            m4.setPlayer2(p5);
-            m4.setWinner(p1);
-
-            Match m5 = new Match();
-            m5.setPlayer1(p2);
-            m5.setPlayer2(p3);
-            m5.setWinner(p3);
-
-            matchDao.save(m1);
-            matchDao.save(m2);
-            matchDao.save(m3);
-            matchDao.save(m4);
-            matchDao.save(m5);
+            matchService.saves(new Match[]{m1,m2,m3,m4,m5,m6,m7,m8,m9,m10});
 
             tx.commit();
         } catch (Exception e) {

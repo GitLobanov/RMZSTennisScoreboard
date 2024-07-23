@@ -8,6 +8,9 @@ https://www.javaguides.net/2019/11/hibernate-h2-database-example-tutorial.html
 
 - Создание моделей (сущностей для H2)
 - Создание HibernateUtil
-- Создание FinishedMatchesPersistenceService, для сохранения матчей
-гайд по созданию 
-- 
+- CrudInterface
+- CrudService
+- Models (GameSet, Game)
+- MatchService
+- PlayerService
+
