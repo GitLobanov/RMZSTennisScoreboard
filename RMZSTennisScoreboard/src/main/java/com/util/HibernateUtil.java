@@ -1,40 +1,34 @@
 package com.util;
 
+import com.model.Match;
+import com.model.Player;
+import org.h2.engine.User;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
 
     private static SessionFactory sessionFactory;
-    private static StandardServiceRegistry serviceRegistry;
 
     public static  SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
-                serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
-                MetadataSources sources = new MetadataSources(serviceRegistry);
-                Metadata metadata = sources.getMetadataBuilder().build();
-                sessionFactory = metadata.getSessionFactoryBuilder().build();
+                Configuration configuration = new Configuration().configure();
+                configuration.addAnnotatedClass(Player.class);
+                configuration.addAnnotatedClass(Match.class);
+                StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+                sessionFactory = configuration.buildSessionFactory(builder.build());
             } catch (Exception e) {
-                e.printStackTrace();
-
-                if(serviceRegistry!=null){
-                    StandardServiceRegistryBuilder.destroy(serviceRegistry);
-                }
+                System.out.println("Исключение!" + e);
             }
-
         }
-
         return sessionFactory;
     }
 
     public static void shutdown(){
-        if(serviceRegistry!=null){
-            StandardServiceRegistryBuilder.destroy(serviceRegistry);
-        }
+        sessionFactory.close();
     }
 
 

@@ -15,19 +15,16 @@ public class Match {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "player1")
     @ManyToOne()
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "player1")
     private Player player1;
 
-    @Column(name = "player2")
     @ManyToOne()
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "player2")
     private Player player2;
 
-    @Column(name = "winner")
     @ManyToOne()
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "winner")
     private Player winner;
 
 }

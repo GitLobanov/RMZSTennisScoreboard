@@ -1,15 +1,12 @@
 package com.service;
 
 import com.model.Match;
-import com.util.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 import java.util.List;
 
-public class FinishedMatchesPersistenceService extends CrudService {
+public class MatchService extends CrudService {
 
-    public FinishedMatchesPersistenceService() {
+    public MatchService() {
     }
 
     public void saveMatches (Match match){
