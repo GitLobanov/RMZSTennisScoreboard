@@ -2,15 +2,7 @@
 
 ## Table of Contents
 - [Описание интерфейса](#Описание_интерфейса)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-
-![image](https://github.com/user-attachments/assets/1ab99004-c84b-4b1b-9d5e-fa2344d97ddd)
-![image](https://github.com/user-attachments/assets/1ab99004-c84b-4b1b-9d5e-fa2344d97ddd)
+- [Используемая литература](#Литература)
 
 # Описание_интерфейса
 
@@ -39,6 +31,13 @@
 5. **index.jsp**: Обновленный списко матчей
 
 ![image](https://github.com/user-attachments/assets/bf5e7c33-958a-4ea1-abc8-76741cd5950f)
+
+# Литература
+
+- Hibernate H2 Database Example Tutorial / https://www.javaguides.net/2019/11/hibernate-h2-database-example-tutorial.html
+- Guide to Java Servlet / https://howtodoinjava.com/java/servlets/complete-java-servlets-tutorial/
+- How to send Java Servlet to JSP / https://initialcommit.com/blog/how-to-send-data-from-servlet-to-jsp
+- Guide to JAVA Servlets / https://howtodoinjava.com/java/servlets/complete-java-servlets-tutorial/
 
 
 
