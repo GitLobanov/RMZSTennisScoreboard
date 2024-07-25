@@ -7,6 +7,16 @@
 
 # Описание проекта
 
+Java - коллекции, ООП
+Паттерн MVC(S)
+Maven/Gradle
+Backend
+Java сервлеты
+HTTP - GET и POST запросы, коды ответа
+REST API, JSON
+Базы данных - SQLite, JDBC
+Деплой - облачный хостинг, командная строка Linux, Tomcat
+
 Полное ТЗ - [click](https://zhukovsd.github.io/java-backend-learning-course/Projects/TennisScoreboard/)
 Автор проекта - [Сергей Жуков](https://github.com/zhukovsd)
 
