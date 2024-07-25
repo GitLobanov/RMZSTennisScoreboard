@@ -1,6 +1,6 @@
 Выполнение задачи "Табло теннисного матча"  из роадмапа Сергея Жукова
 
-index.jsp
+#index.jsp
 ![image](https://github.com/user-attachments/assets/1ab99004-c84b-4b1b-9d5e-fa2344d97ddd)
 задействовано:
 - IndexController (IndexServlet) 
