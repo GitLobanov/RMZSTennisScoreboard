@@ -17,7 +17,7 @@
 - Тесты - юнит тестирование, JUnit 5
 - Деплой - облачный хостинг, командная строка Linux, Tomcat
 
-### Полное ТЗ - [click](https://zhukovsd.github.io/java-backend-learning-course/Projects/TennisScoreboard/)
+### Полное ТЗ - [click](https://zhukovsd.github.io/java-backend-learning-course/projects/tennis-scoreboard/)
 ### Автор проекта - [Сергей Жуков](https://github.com/zhukovsd)
 
 # Описание_интерфейса
