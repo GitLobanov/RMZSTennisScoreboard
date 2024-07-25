@@ -7,8 +7,8 @@
 
 # Описание проекта
 
-[Полное ТЗ](https://zhukovsd.github.io/java-backend-learning-course/Projects/TennisScoreboard/)
-Автор проекта - [Сргей Жуков](https://github.com/zhukovsd)
+Полное ТЗ - [click](https://zhukovsd.github.io/java-backend-learning-course/Projects/TennisScoreboard/)
+Автор проекта - [Сергей Жуков](https://github.com/zhukovsd)
 
 # Описание_интерфейса
 
