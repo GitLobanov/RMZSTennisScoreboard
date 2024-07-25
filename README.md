@@ -9,19 +9,8 @@
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/1ab99004-c84b-4b1b-9d5e-fa2344d97ddd)
+![image](https://github.com/user-attachments/assets/1ab99004-c84b-4b1b-9d5e-fa2344d97ddd)
 
 ### ОписаниеUI
 
