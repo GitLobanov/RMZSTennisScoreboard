@@ -1,5 +1,14 @@
 Выполнение задачи "Табло теннисного матча"  из роадмапа Сергея Жукова
 
+## Table of Contents
+- [Description](#description)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+
 ### Описание интерфейса
 
 1. **index.jsp**: Вывод списка завершенных матчей, переход к созданию нового
