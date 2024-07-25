@@ -1,7 +1,7 @@
 Выполнение задачи "Табло теннисного матча"  из роадмапа Сергея Жукова
 
 ## Table of Contents
-- [Description](#description)
+- [Description](### Описание интерфейса)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
