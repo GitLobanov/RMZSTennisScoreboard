@@ -34,7 +34,7 @@
 ![image](https://github.com/user-attachments/assets/89d19366-83ba-45f6-a9e0-dc0bbe96fb97)
 
 5. **index.jsp**: Обновленный списко матчей
-#desc_interfac
+#desc_interface
 
 ![image](https://github.com/user-attachments/assets/bf5e7c33-958a-4ea1-abc8-76741cd5950f)
 
