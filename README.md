@@ -1,11 +1,8 @@
 Выполнение задачи "Табло теннисного матча"  из роадмапа Сергея Жукова
 
-### Hot Commands and Tips
+### Описание интерфейса
 
-1. **Badges**: Use shields.io to add badges for build status, license, version, etc. This makes your README visually appealing.
-   
-   ```markdown
-   ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+1. **index.jsp**: Вывод списка завершенных матчей, переход к созданию нового
 
 #index.jsp
 ![image](https://github.com/user-attachments/assets/1ab99004-c84b-4b1b-9d5e-fa2344d97ddd)
