@@ -7,16 +7,16 @@ import com.model.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OngoingMatchesService {
+public class OngoingCalculationMatchesService {
 
-    private MatchScoreCalculationService matchScoreCalculationService = new MatchScoreCalculationService();
+    //  TODO violation of Single Responsibility Principle
+
     private Player player1;
     private Player player2;
     private List<GameSet> gameSets;
     private GameSet currentGameSet;
     private List<Game> games;
     private Game currentGame;
-    private Player currentPlayer;
 
     public int[] countGamesWin;
     public int[] countSetsWin;
@@ -109,7 +109,7 @@ public class OngoingMatchesService {
 
 
     public boolean isEndMatch() {
-        if (Math.abs(countSetsWin[0] - countSetsWin[1]) > 2 & (countSetsWin[0] + countSetsWin[1] > 2)) {
+        if (Math.abs(countSetsWin[0] - countSetsWin[1]) > 2 & (countSetsWin[0] + countSetsWin[1] > 1)) {
             return true;
         }
         return false;

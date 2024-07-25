@@ -3,6 +3,7 @@ package com.service;
 import com.model.Match;
 import com.model.Player;
 import com.repository.CrudRepository;
+import com.sun.xml.bind.v2.model.core.ID;
 import com.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -10,16 +11,16 @@ import org.hibernate.Transaction;
 import java.util.List;
 import java.util.Optional;
 
-public class PlayerService implements CrudRepository<Player, Long> {
-
+public class FinishedMatchesPersistenceService implements CrudRepository<Match, Long> {
 
     @Override
-    public void save(Player entity) {
+    public void save(Match match) {
+
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
             transaction = session.beginTransaction();
-            session.persist(entity);
+            session.persist(match);
             session.flush();
             transaction.commit();
             session.close();
@@ -32,29 +33,43 @@ public class PlayerService implements CrudRepository<Player, Long> {
         }
     }
 
-    public void saveGroup(Player [] player){
-        for (Player p : player) {
+    @Override
+    public void delete(Match entity) {
+    }
+
+    @Override
+    public void update(Match entity) {
+    }
+
+    public void saveGroup (Match[] matches){
+        for (Match p : matches) {
             save(p);
         }
     }
 
     @Override
-    public void delete(Player entity) {
-
+    public Optional<Match> findById(long id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Optional<Match> toReturn = Optional.of(session.get(Match.class, id));
+        session.close();
+        return toReturn;
     }
 
-    @Override
-    public void update(Player entity) {
-
+    public Optional<Player> findByPlayerName(String name) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Optional<Player> toReturn = Optional.of((Player)
+                session.createQuery("select m, p from Player p,Match m where p.name = :name").setParameter("name",name).list().get(0));
+        session.close();
+        return toReturn;
     }
 
+
     @Override
-    public List<Player> findAll() {
+    public List<Match> findAll() {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            List list = session.createCriteria(Player.class).list();
-            session.close();
+            List list = session.createCriteria(Match.class).list();
             return list;
         } catch (Exception e) {
             if (transaction != null) {
@@ -63,14 +78,6 @@ public class PlayerService implements CrudRepository<Player, Long> {
             e.printStackTrace();
             return null;
         }
-    }
 
-    @Override
-    public Optional<Player> findById(long id) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Optional<Player> toReturn = Optional.of(session.get(Player.class, id));
-        session.close();
-        return toReturn;
     }
-
 }
