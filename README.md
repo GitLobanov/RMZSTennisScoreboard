@@ -22,7 +22,7 @@
 
 # Описание_интерфейса
 
-1. **index.jsp**: Вывод списка завершенных матчей, переход к созданию нового
+1. **index.jsp**: Главная страница, переход к созданию матча или просмотру завершенных матчей
 
 ![image](https://github.com/user-attachments/assets/1ab99004-c84b-4b1b-9d5e-fa2344d97ddd)
 
@@ -44,9 +44,14 @@
 
 ![image](https://github.com/user-attachments/assets/89d19366-83ba-45f6-a9e0-dc0bbe96fb97)
 
-5. **index.jsp**: Обновленный списко матчей
+5. **matches.jsp**: Завершенные матчи
 
-![image](https://github.com/user-attachments/assets/bf5e7c33-958a-4ea1-abc8-76741cd5950f)
+![image](https://github.com/user-attachments/assets/3ceb0d4d-e20d-4602-958e-af285e52b89b)
+
+7. **matches.jsp**: Результат поиска по игроку
+
+![image](https://github.com/user-attachments/assets/f5df33c7-6b59-425b-9362-8cc8c4b98d08)
+
 
 # Литература
 
