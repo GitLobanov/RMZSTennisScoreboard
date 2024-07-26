@@ -147,3 +147,20 @@ h2 {
     background-color: var(--c);
     color: #fff;
 }
+
+.button_page {
+    margin: 4px;
+    font-family: fantasy;
+    background: aliceblue;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.button_page_active {
+    margin: 4px;
+    font-family: fantasy;
+    color: blue;
+    background: aliceblue;
+    padding: 5px;
+    cursor: pointer;
+}

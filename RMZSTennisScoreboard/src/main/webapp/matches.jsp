@@ -1,16 +1,16 @@
 <%@ page import="com.model.Match" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: ranob
-  Date: 7/25/2024
-  Time: 3:18 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Завершенные матчи</title>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+    <script>
+        function goToNextPage(page_number) {
+            window.location.href = '/matches?page='+page_number;
+        }
+    </script>
 </head>
 <body>
 
@@ -27,6 +27,18 @@
 
 
 <div class="scroll-container">
+
+    <form action="" method="get">
+        <input style="visibility: hidden; position: absolute" type="number" value="<%=request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")): 1%>">
+        <input placeholder="имя игрока" type="text" name="filter_by_player_name">
+        <input type="submit" value="поиск">
+    </form>
+
+    <form action="" method="get">
+        <input style="visibility: hidden; position: absolute" type="number" value="<%=request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")): 1%>">
+        <input type="submit" value="сбросить">
+    </form>
+
     <table class="zigzag">
         <thead>
         <tr>
@@ -50,7 +62,13 @@
             <td><%= match.getWinner().getName() %></td>
         </tr>
         <%
-            }
+                }
+                for (int i = 1; i <= (int) request.getAttribute("pages"); i++) {
+                    int page_number = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")): 1;
+        %>
+            <button class="<%=(i == page_number) ? "button_page_active" : "button_page"%>" onclick="goToNextPage(<%= i %>)"><%= i %></button>
+        <%
+                }
         } else {
         %>
         <tr>

@@ -55,10 +55,10 @@ public class FinishedMatchesPersistenceService implements CrudRepository<Match, 
         return toReturn;
     }
 
-    public Optional<Player> findByPlayerName(String name) {
+    public List<Match> findByPlayerName(String name) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Optional<Player> toReturn = Optional.of((Player)
-                session.createQuery("select m, p from Player p,Match m where p.name = :name").setParameter("name",name).list().get(0));
+        List<Match> toReturn =
+                session.createQuery("select m from Match m where m.player1.name = :name or m.player2.name = :name").setParameter("name",name).list();
         session.close();
         return toReturn;
     }
