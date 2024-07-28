@@ -27,12 +27,14 @@
 ![image](https://github.com/user-attachments/assets/1ab99004-c84b-4b1b-9d5e-fa2344d97ddd)
 
 #### задействовано:
-- IndexController (IndexServlet) 
-- MatchService (matchService.getAll(new Match()))
+- IndexController (IndexServlet)
 
 2. **match.jsp**: Создание нового матча
 
 ![image](https://github.com/user-attachments/assets/1dc01f18-890c-4a82-8547-b09a45fae2cf)
+
+#### задействовано:
+- ProcessMatchServlet
 
 3. **match.jsp**: Ход матча
 
@@ -40,17 +42,29 @@
 
 ![image](https://github.com/user-attachments/assets/b78ace8f-e633-4b72-aeca-3b36f2f8e26c)
 
+#### задействовано:
+- ProcessMatchServlet
+
 4. **match.jsp**: Завершение матча, переход к списку матчей или создание нового
 
 ![image](https://github.com/user-attachments/assets/89d19366-83ba-45f6-a9e0-dc0bbe96fb97)
+
+#### задействовано:
+- ProcessMatchServlet
 
 5. **matches.jsp**: Завершенные матчи
 
 ![image](https://github.com/user-attachments/assets/3ceb0d4d-e20d-4602-958e-af285e52b89b)
 
+#### задействовано:
+- ListMatchServlet
+
 7. **matches.jsp**: Результат поиска по игроку
 
 ![image](https://github.com/user-attachments/assets/f5df33c7-6b59-425b-9362-8cc8c4b98d08)
+
+#### задействовано:
+- ListMatchServlet
 
 
 # Литература
@@ -59,10 +73,5 @@
 - Guide to Java Servlet / https://howtodoinjava.com/java/servlets/complete-java-servlets-tutorial/
 - How to send Java Servlet to JSP / https://initialcommit.com/blog/how-to-send-data-from-servlet-to-jsp
 - Guide to JAVA Servlets / https://howtodoinjava.com/java/servlets/complete-java-servlets-tutorial/
-
-
-
-
-
-
+- 
 
