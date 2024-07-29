@@ -1,6 +1,6 @@
 Выполнение задачи "Табло теннисного матча"  из роадмапа Сергея Жукова
 
-## Table of Contents
+## Содержание
 - [Описание проекта](#Описание_проекта)
 - [Описание интерфейса](#Описание_интерфейса)
 - [Используемая литература](#Литература)
@@ -66,6 +66,11 @@
 #### задействовано:
 - ListMatchServlet
 
+8. Деплой проекта
+
+![image](https://github.com/user-attachments/assets/ee318123-24c5-4530-97a5-bc50d8750b5c)
+
+Деплой осуществлялся в сервис Selectel
 
 # Литература
 
@@ -73,5 +78,6 @@
 - Guide to Java Servlet / https://howtodoinjava.com/java/servlets/complete-java-servlets-tutorial/
 - How to send Java Servlet to JSP / https://initialcommit.com/blog/how-to-send-data-from-servlet-to-jsp
 - Guide to JAVA Servlets / https://howtodoinjava.com/java/servlets/complete-java-servlets-tutorial/
-- 
+- How to Install Apache Tomcat 8 on Linux? / https://www.geeksforgeeks.org/how-to-install-apache-tomcat-8-on-linux/?ysclid=lytnyxvqh640412217
+- 100 commands to use Linux / https://tproger.ru/articles/100-komand-linux-dlya-ezhednevnoj-raboty?ysclid=lz6ebt92ve823170842
 
